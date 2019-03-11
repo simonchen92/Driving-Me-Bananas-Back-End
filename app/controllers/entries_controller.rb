@@ -1,4 +1,4 @@
-class EntriesController < OpenReadController
+class EntriesController < ProtectedController
   before_action :set_entry, only: [:show, :update, :destroy]
 
   # GET /entries
