@@ -3,7 +3,7 @@ class EntriesController < ProtectedController
 
   # GET /entries
   def index
-    @entries = Entry.all
+    @entries = current_user.entries.all
 
     render json: @entries
   end
@@ -26,7 +26,7 @@ class EntriesController < ProtectedController
 
   # PATCH/PUT /entries/1
   def update
-    if @entry.update(entry_params)
+    if @entry.update(entry_params_update)
       render json: @entry
     else
       render json: @entry.errors, status: :unprocessable_entity
@@ -47,5 +47,9 @@ class EntriesController < ProtectedController
     # Only allow a trusted parameter "white list" through.
     def entry_params
       params.require(:entry).permit(:title, :description, :date)
+    end
+
+    def entry_params_update
+      params.require(:entry).permit(:title, :description)
     end
 end
