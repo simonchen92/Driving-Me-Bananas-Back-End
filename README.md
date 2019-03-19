@@ -16,8 +16,10 @@ My project is an application that creates and stores the list of journal entries
 
 * Ruby
 * Rails
+* PostgreSQL
 * CURL
 * Heroku
+
 
 ## Entity Relationship Diagram (ERD)
 
